@@ -42,7 +42,7 @@ function procesarNumeros() {
         resultadoDiv.innerHTML = 
             `<p class="iguales">Los tres números son iguales: ${num1}, ${num2}, ${num3}</p>`;
     } else {
-        // Crear copias del array para no modificar el original
+        
         let mayorAMenor = [...numeros].sort((a, b) => b - a);
         let menorAMayor = [...numeros].sort((a, b) => a - b);
 
