@@ -22,31 +22,40 @@ if (num1 === num2 && num2 === num3) {
 }
 
 */
+function procesarNumeros() {
+    // Obtener los valores de los inputs
+    let num1 = parseInt(document.getElementById('num1').value);
+    let num2 = parseInt(document.getElementById('num2').value);
+    let num3 = parseInt(document.getElementById('num3').value);
 
+    // Validar que se hayan ingresado números válidos
+    if (isNaN(num1) || isNaN(num2) || isNaN(num3)) {
+        document.getElementById('resultado').innerHTML = 
+            '<p class="error">Por favor, ingresa números válidos en todos los campos.</p>';
+        return;
+    }
 
-function ordenarNumeros() {
-  const num1 = parseInt(document.getElementById("num1").value);
-  const num2 = parseInt(document.getElementById("num2").value);
-  const num3 = parseInt(document.getElementById("num3").value);
+    let numeros = [num1, num2, num3];
+    let resultadoDiv = document.getElementById('resultado');
 
-  const resultadoDiv = document.getElementById("resultado");
+    if (num1 === num2 && num2 === num3) {
+        resultadoDiv.innerHTML = 
+            `<p class="iguales">Los tres números son iguales: ${num1}, ${num2}, ${num3}</p>`;
+    } else {
+        // Crear copias del array para no modificar el original
+        let mayorAMenor = [...numeros].sort((a, b) => b - a);
+        let menorAMayor = [...numeros].sort((a, b) => a - b);
 
-  if (isNaN(num1) || isNaN(num2) || isNaN(num3)) {
-    resultadoDiv.innerHTML = "Por favor, ingresa los tres números.";
-    return;
-  }
-
-  if (num1 === num2 && num2 === num3) {
-    resultadoDiv.innerHTML = `Los tres números son iguales: ${num1}, ${num2}, ${num3}`;
-  } else {
-    const numeros = [num1, num2, num3];
-
-    const mayorAMenor = numeros.sort((a, b) => b - a);
-    const menorAMayor = numeros.sort((a, b) => a - b);
-
-    resultadoDiv.innerHTML = `
-      <p>De mayor a menor: ${mayorAMenor.join(", ")}</p>
-      <p>De menor a mayor: ${menorAMayor.join(", ")}</p>
-    `;
-  }
+        resultadoDiv.innerHTML = `
+            <p><strong>De mayor a menor:</strong> ${mayorAMenor.join(', ')}</p>
+            <p><strong>De menor a mayor:</strong> ${menorAMayor.join(', ')}</p>
+        `;
+    }
 }
+
+// Permitir procesar con Enter
+document.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        procesarNumeros();
+    }
+});

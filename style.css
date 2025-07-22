@@ -1,37 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  margin-top: 50px;
-  background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 h1 {
-  color: #333;
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
 }
 
-.formulario {
-  margin-bottom: 20px;
+.form-container {
+    margin-bottom: 20px;
 }
 
-input {
-  padding: 10px;
-  margin: 5px;
-  width: 150px;
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
 }
 
 button {
-  padding: 10px 20px;
-  background-color: #0288d1;
-  color: white;
-  border: none;
-  cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 button:hover {
-  background-color: #026aa7;
+    background-color: #0056b3;
 }
 
-#resultado {
-  font-size: 18px;
-  margin-top: 20px;
+.resultado {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #fafafa;
 }
+
+.resultado p {
+    margin-bottom: 10px;
+}
+
+.iguales {
+    background-color: #e0ffe0;
+    padding: 10px;
+    border: 1px solid green;
+    color: green;
+    text-align: center;
+    font-weight: bold;
+}
+
